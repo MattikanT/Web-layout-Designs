@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlapping layout with flex box</title>
+    <style>
+        /*https://www.youtube.com/watch?v=_HTL0XSMcRQ*/
+        :root{
+            --bg-color:#fddcc356;
+            --right-bg-color:#2f3d3c;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        section{
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-color);
+        }
+        .container{
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left{
+            width: 50%;
+            height: 600px;
+            background: url('https://images.pexels.com/photos/1031200/pexels-photo-1031200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center/cover;
+            border-radius: 8px;
+            border: 1px solid #000;
+
+        }
+        .right{
+            width: 50%;
+            min-height: 400px;
+            background-color: var(--right-bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            border-radius: 8px;
+            color: #fff;
+            margin-left: -150px; /*This help with over lapping and also will give it space between on the left and right side as it giing a padding*/
+            
+        }
+        .right h1{
+            font-size: 40px;
+            font-weight: lighter;
+        }
+        .right p{
+            margin: 20px 0;
+            font-weight: 500;
+            line-height: 25px;
+        }
+        .right a{
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: #fff;
+            color: #000;
+            padding: 20px 30px;
+            display: inline-block;
+            letter-spacing: 2px;
+        }
+        @media only screen  and (max-width:768px){
+            .container{
+                flex-direction: column;
+                width: 100%;
+                margin: 10px 20px;
+            }
+            .left{
+                width: 100%;
+                height: 400px;
+            }
+            .right{
+                width: 90%;
+                margin: 0;
+                margin-top: -100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="left">
+                <img src="" alt="">
+            </div>
+            <div class="right">
+                <div class="content">
+                    <h1>This is heading</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis maiores placeat quaerat illum assumenda iste, nemo amet quia itaque laudantium.</p>
+                    <a href="" class="btn">Click Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

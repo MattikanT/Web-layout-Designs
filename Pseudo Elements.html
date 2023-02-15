@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Simple Website</title>
+    <style>
+
+        .nav{
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--primarycolor);
+            padding: 1rem;
+        }
+
+        .menu{
+            display: flex;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .menu-list{
+            position: relative;
+            padding: 0 5px; /* help to make the line wider after give it a width of 100%*/
+            
+        }
+        .menu-list:after{
+            content: "";
+            width: 0px;
+            height: 3px;
+            background-color: #fff;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: 0.4s;
+        }
+
+        .menu-list:hover:after{
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+        :root{
+            --primarycolor:#12e7c0;
+            --graylight:#f3f3f3;
+            --green:#c4c4c4;
+            --border-radius:0.5rem;
+        }
+
+        *,*:before,*:after{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-family: serif;
+            background-color: var(--graylight);
+        }
+        main{
+            margin: 2rem;
+        }
+
+        h1{
+            text-align: center;
+        }        
+        
+        .wrapper{
+            counter-reset: number; /*number is represent a variable name and we name it 'number'*/
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 4rem 0;
+        }
+
+        .container{
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 20px var(--green);
+            padding: 2rem;
+            width: 300px;
+            margin: 0 0.5rem 5rem ;
+            background-color: white;
+            text-align: center;
+            position: relative; 
+
+        }
+
+        h2{
+            margin: 2rem 0 1rem 0;
+        }
+
+        .container::before{
+            counter-increment: number;
+            content:counter(number);
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 4rem;
+
+            width: 4rem;
+            height: 4rem;
+            background-color:var(--primarycolor);
+            position: absolute;
+            display: block;
+            border-radius: 50%;
+            left: 7.8rem;
+            top: -2rem;          
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">LOGO</div>
+            <div class="menu">
+                <div class="menu-list">Get Started</div>
+                <div class="menu-list">About</div>
+                <div class="menu-list">Contact</div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>Get Started</h1>
+    
+        <div class="wrapper">
+            <div class="container">
+                <h2 class="title">Pick a Template</h2>
+                <p class="description">Editing everything inline gives you a sense of control you have never felt with any other tool.</p>
+            </div>
+
+            <div class="container">
+                <h2 class="title">Make It Your Own </h2>
+                <p class="description">Editing everything inline gives you a sense of control you have never felt with any other tool.</p>
+            </div>
+
+            <div class="container">
+                <h2 class="title">Share It Out</h2>
+                <p class="description">Editing everything inline gives you a sense of control you have never felt with any other tool.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
